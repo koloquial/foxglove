@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 //Style
-import { Alert, Card, Form, Button } from 'react-bootstrap';
+import { Alert, Card, Form, Button, Row, Col } from 'react-bootstrap';
 
 //Authentication
 import { useAuth } from '../../../../authentication/AuthContext';
@@ -41,27 +41,33 @@ const Signup = () => {
   }
 
   return (
-    <Card>
-      <Card.Header>Create an Account</Card.Header>
+    <Card className='card'>
       <Card.Body>
         {error && <Alert variant='danger'>{error}</Alert>}
         <Form onSubmit={handleSubmit}>
-          <Form.Group id='email'>
-            <Form.Label>Email</Form.Label>
-            <Form.Control type='email' ref={emailRef} required />
-          </Form.Group>
-          <br />
-          <Form.Group id='password'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control type='password' ref={passwordRef} required />
-          </Form.Group>
-          <br />
-          <Form.Group id='passwordConfirm'>
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control type='password' ref={passwordConfirmRef} required />
-          </Form.Group>
-          <br />
-          <Button type='submit' disabled={loading}>Sign Up</Button>
+          <Row>
+            <Col xl={2}>
+              <h1 className='label'>Create</h1>
+            </Col>
+            <Col>
+              <Form.Group id='email'>
+                <Form.Control className='input' type='email' ref={emailRef} placeholder={'Email'} required />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group id='password'>
+                <Form.Control className='input' type='password' ref={passwordRef} placeholder={'Password'} required />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group id='passwordConfirm'>
+                <Form.Control className='input' type='password' ref={passwordConfirmRef} placeholder={'Retype Password'} required />
+              </Form.Group>
+            </Col>
+            <Col xl={2}>
+              <Button className='button' type='submit' disabled={loading}>Log In</Button>
+            </Col>
+          </Row>
         </Form>
       </Card.Body>
     </Card>

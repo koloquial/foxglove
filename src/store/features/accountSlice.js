@@ -16,6 +16,6 @@ const accountSlice = createSlice({
   }
 });
 
-export const { assignDatabase, assignAction, assignView, assignLoading } = accountSlice.actions;
+export const { assignDatabase, assignLoading } = accountSlice.actions;
 
 export default accountSlice;

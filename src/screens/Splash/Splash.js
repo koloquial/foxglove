@@ -6,7 +6,7 @@ import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword';
 
 //Styles
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 const Splash = () => {
   const [active, setActive] = useState('login');
@@ -16,57 +16,55 @@ const Splash = () => {
   }
 
   return (
-    <>
-      <Container fluid>
-        <div className='center'>
-          <Row>
-            <Col xl={12}>
-              <h1>Foxglove</h1>
-            </Col>
-            <Col xl={12}>
-              {active === 'login' ?
-                (<>
-                  <Row>
-                    <Col xl={12}>
-                      <div style={{ minWidth: '400px' }}>
-                        <Login />
-                        <a href='#' onClick={() => handle('signup')}>Create an account</a><br />
-                        <a href='#' onClick={() => handle('forgot')}>Forgot password?</a>
-                      </div>
-                    </Col>
-                  </Row>
-                </>) : (<></>)}
+    <div className='vertical-center'>
+      <Row>
+        <Col xl={12}>
+          <h1 className='title'>Foxglove</h1>
+          <br />
+        </Col>
 
-              {active === 'signup' ?
-                (<>
-                  <Row>
-                    <Col xl={12}>
-                      <div style={{ minWidth: '400px' }}>
-                        <Signup />
-                        <a href='#' onClick={() => handle('login')}>Log in</a><br />
-                        <a href='#' onClick={() => handle('forgot')}>Forgot password?</a>
-                      </div>
-                    </Col>
-                  </Row>
-                </>) : (<></>)}
+        <Col xl={12}>
+          {active === 'login' ?
+            (<Row>
+              <Col xl={12}>
+                <Login />
+                <center>
+                  <p><a href='#' onClick={() => handle('signup')}>Create an AFTid</a></p>
+                  <p>&nbsp; &nbsp; • &nbsp;&nbsp;</p>
+                  <p><a href='#' onClick={() => handle('forgot')}>Forgot password?</a></p>
+                </center>
+              </Col>
+            </Row>
+            ) : (<></>)}
 
-              {active === 'forgot' ?
-                (<>
-                  <Row>
-                    <Col xl={12}>
-                      <div style={{ minWidth: '400px' }}>
-                        <ForgotPassword />
-                        <a href='#' onClick={() => handle('login')}>Log in</a><br />
-                        <a href='#' onClick={() => handle('signup')}>Create an account</a>
-                      </div>
-                    </Col>
-                  </Row>
-                </>) : (<></>)}
-            </Col>
-          </Row>
-        </div>
-      </Container>
-    </>
+          {active === 'signup' ?
+            (<Row>
+              <Col xl={12}>
+                <Signup />
+                <center>
+                  <p><a href='#' onClick={() => handle('login')}>Log in</a></p>
+                  <p>&nbsp; &nbsp; • &nbsp;&nbsp;</p>
+                  <p><a href='#' onClick={() => handle('forgot')}>Forgot password?</a></p>
+                </center>
+              </Col>
+            </Row>
+            ) : (<></>)}
+
+          {active === 'forgot' ?
+            (<Row>
+              <Col xl={12}>
+                <ForgotPassword />
+                <center>
+                  <p><a href='#' onClick={() => handle('login')}>Log in</a></p>
+                  <p>&nbsp; &nbsp; • &nbsp;&nbsp;</p>
+                  <p><a href='#' onClick={() => handle('signup')}>Create an AFTid</a></p>
+                </center>
+              </Col>
+            </Row>
+            ) : (<></>)}
+        </Col>
+      </Row>
+    </div>
   )
 }
 

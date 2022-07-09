@@ -1,0 +1,44 @@
+@import './palette.scss';
+
+.label {
+  color: rgba(86, 86, 86, 0.5);
+  font-family: 'Mukta', sans-serif;
+  font-size: 6vh;
+  overflow: clip;
+}
+
+.input {
+  display: inline-block;
+  font-family: 'Mukta', sans-serif;
+  background-color: transparent;
+  border: 0;
+  color: $bright;
+  border: 1px solid $bright;
+  margin: 5px;
+  padding: 5px;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none !important;
+  background: rgb(193, 161, 251, .5);
+  border: 1px solid rgb(193, 161, 251, .5);
+  color: $white;
+}
+
+.button {
+  display: inline-block;
+  font-family: 'Mukta', sans-serif;
+  border: 0;
+  color: $background;
+  border: 1px solid $bright;
+  margin: 5px;
+  background: $bright;
+  padding: 5px;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: $pink;
+  border: 1px solid $pink;
+}

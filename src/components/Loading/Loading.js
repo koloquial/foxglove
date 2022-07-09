@@ -3,9 +3,18 @@ import React from 'react';
 const Loading = () => {
 
   return (
-    <>
-      Loading...
-    </>
+    <div class='center'>
+      <div class='wave'></div>
+      <div class='wave'></div>
+      <div class='wave'></div>
+      <div class='wave'></div>
+      <div class='wave'></div>
+      <div class='wave'></div>
+      <div class='wave'></div>
+      <div class='wave'></div>
+      <div class='wave'></div>
+      <div class='wave'></div>
+    </div >
   )
 }
 

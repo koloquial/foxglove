@@ -9,23 +9,28 @@ import PrivateRoute from './authentication/PrivateRoute';
 import Splash from './screens/Splash';
 import Dashboard from './screens/Dashboard';
 
+//Store
+import store from './store';
+import { Provider } from 'react-redux';
 
 const App = () => {
 
   return (
-    <Router>
-      <AuthProvider>
-        <Routes>
+    <Provider store={store}>
+      <Router>
+        <AuthProvider>
+          <Routes>
 
-          <Route path='/splash' element={<Splash />} exact />
+            <Route path='/splash' element={<Splash />} exact />
 
-          <Route path='/' element={<PrivateRoute />} exact>
-            <Route path='/' element={<Dashboard />} exact />
-          </Route>
+            <Route path='/' element={<PrivateRoute />} exact>
+              <Route path='/' element={<Dashboard />} exact />
+            </Route>
 
-        </Routes>
-      </AuthProvider>
-    </Router >
+          </Routes>
+        </AuthProvider>
+      </Router >
+    </Provider>
   )
 }
 

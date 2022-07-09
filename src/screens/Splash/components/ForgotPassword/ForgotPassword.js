@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 //Style
-import { Alert, Card, Form, Button } from 'react-bootstrap';
+import { Alert, Card, Form, Button, Row, Col } from 'react-bootstrap';
 
 //Authentication
 import { useAuth } from '../../../../authentication/AuthContext';
@@ -32,23 +32,27 @@ const ForgotPassword = () => {
   }
 
   return (
-    <>
-      <Card>
-        <Card.Header>Password Reset</Card.Header>
-        <Card.Body>
-          {error && <Alert variant='danger'>{error}</Alert>}
-          {message && <Alert variant='success'>{message}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id='email'>
-              <Form.Label>Email</Form.Label>
-              <Form.Control type='email' ref={emailRef} required />
-            </Form.Group>
-            <br />
-            <Button type='submit' disabled={loading}>Reset Password</Button>
-          </Form>
-        </Card.Body>
-      </Card>
-    </>
+    <Card className='card'>
+      <Card.Body>
+        {error && <Alert variant='danger'>{error}</Alert>}
+        {message && <Alert variant='success'>{message}</Alert>}
+        <Form onSubmit={handleSubmit}>
+          <Row>
+            <Col>
+              <h1 className='label'>Reset</h1>
+            </Col>
+            <Col>
+              <Form.Group id='email'>
+                <Form.Control className='input' type='email' ref={emailRef} placeholder={'Email'} required />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Button className='button' type='submit' disabled={loading}>Reset</Button>
+            </Col>
+          </Row>
+        </Form>
+      </Card.Body>
+    </Card>
   )
 
 }

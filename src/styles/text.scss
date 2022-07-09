@@ -1,0 +1,17 @@
+@import './palette.scss';
+
+p, h5{
+  font-family: 'Mukta', sans-serif;
+  color: $white;
+  display: inline;
+}
+
+.title{
+  display: inline-block;
+  margin-bottom: -50px;
+  font-size: 20vw;
+  background: -webkit-linear-gradient(-75deg, $purple, $pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Bebas Neue', cursive;
+}

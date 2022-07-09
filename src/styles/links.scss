@@ -1,0 +1,24 @@
+@import './palette.scss';
+
+a{
+color: $bright;
+text-decoration: none;
+}
+
+a:link{
+  color: $bright;
+  text-decoration: none;
+}
+
+a:active{
+  color: $bright;
+  text-decoration: none;
+}
+
+a:hover{
+  color: $pink;
+}
+
+a:focus{
+  color: $white;
+}

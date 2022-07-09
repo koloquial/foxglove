@@ -12,12 +12,15 @@ import { useSelector, useDispatch } from 'react-redux';
 //Functions
 import { update } from '../../functions/update';
 
+//Navigation
+import { Link, useNavigate } from 'react-router-dom';
+
 const Dashboard = () => {
   //State
   const account = useSelector(state => state.account.database)
   const loading = useSelector(state => state.account.loading)
 
-  const { currentUser } = useAuth()
+  const { currentUser, logout } = useAuth()
 
   useEffect(() => {
     if (currentUser.uid) {
@@ -25,26 +28,29 @@ const Dashboard = () => {
     }
   }, [])
 
+  const handleSubmit = async () => {
+    try {
+      await logout()
+      navigate('/splash')
+    } catch (error) {
+
+    }
+  }
+
   return (
     <div>
-      <Navigation />
-      <br />
 
-      {loading ?
-        <Loading /> :
+      {loading ? <Loading /> :
         <div className='fade'>
           <center>
             <h3 className='darkGreen'>Dashboard</h3>
+            <button onClick={handleSubmit} >logout</button>
             <br /><br />
           </center>
 
-          {action.createHoa ? <CreateHOA /> : <></>}
-
-          {action.createSheet && !action.createHoa ? <CreateSheet /> : <></>}
-
-          {Object.keys(view).length && !action.createHoa ? <Glance /> : <></>}
         </div >
       }
+
     </div>
   )
 }

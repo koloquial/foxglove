@@ -1,6 +1,26 @@
 @import './palette.scss';
 
 body {
-  background-color: $background;
-  color: white;
+  background-color: rgb(1, 1, 1);
+}
+
+.center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.vertical-center{
+position: absolute;
+top: 10%;
+width: 90vw;
+padding: 5vw;
+}
+
+.card{
+  background: rgba(45, 45, 45, 0.3);
+  vertical-align: top;
+  text-align: top;
 }
