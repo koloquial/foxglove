@@ -1,9 +1,29 @@
 @import './palette.scss';
 
-p, h5{
+p{
   font-family: 'Mukta', sans-serif;
   color: $white;
   display: inline;
+}
+
+.error{
+  color: $error;
+}
+
+.head{
+  color: $head;
+}
+
+.prompt{
+  color: $prompt;
+}
+
+.info{
+  color: $info;
+}
+
+.disabled{
+  color: $disabled;
 }
 
 .title{
@@ -14,4 +34,19 @@ p, h5{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Bebas Neue', cursive;
+}
+
+.interface-text{
+  font-family: 'Major Mono Display', monospace;
+  font-size: 10px;
+  display: inline;
+}
+
+.creation {
+  display: inline-block;
+  margin-bottom: -50px;
+  font-size: 5vw;
+  color: $white;
+  inline-size: 80vw;
+  font-family: 'Mukta', sans-serif;
 }

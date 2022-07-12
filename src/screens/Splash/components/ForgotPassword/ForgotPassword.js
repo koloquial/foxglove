@@ -32,27 +32,24 @@ const ForgotPassword = () => {
   }
 
   return (
-    <Card className='card'>
-      <Card.Body>
-        {error && <Alert variant='danger'>{error}</Alert>}
-        {message && <Alert variant='success'>{message}</Alert>}
-        <Form onSubmit={handleSubmit}>
-          <Row>
-            <Col>
-              <h1 className='label'>Reset</h1>
-            </Col>
-            <Col>
-              <Form.Group id='email'>
-                <Form.Control className='input' type='email' ref={emailRef} placeholder={'Email'} required />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Button className='button' type='submit' disabled={loading}>Reset</Button>
-            </Col>
-          </Row>
-        </Form>
-      </Card.Body>
-    </Card>
+    <div className='card'>
+
+      {error && <Alert variant='danger'>{error}</Alert>}
+      {message && <Alert variant='success'>{message}</Alert>}
+      <Form onSubmit={handleSubmit}>
+
+        <p className='interface-text head'>
+          | reset password_
+        </p>
+
+        <Form.Group id='email'>
+          <Form.Control className='input' type='email' ref={emailRef} placeholder={'Email'} required />
+        </Form.Group>
+
+        <Button className='button' type='submit' disabled={loading}>Reset</Button>
+
+      </Form>
+    </div>
   )
 
 }

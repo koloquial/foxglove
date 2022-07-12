@@ -5,53 +5,65 @@ import { useAuth } from '../../authentication/AuthContext';
 
 //Components
 import Loading from '../../components/Loading';
+import Navigation from '../../components/Navigation';
+import NewGame from './components/NewGame';
 
 //State
 import { useSelector, useDispatch } from 'react-redux';
 
 //Functions
-import { update } from '../../functions/update';
+import { checkReality } from '../../functions/checkReality';
 
 //Navigation
 import { Link, useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   //State
-  const account = useSelector(state => state.account.database)
-  const loading = useSelector(state => state.account.loading)
+  const loading = useSelector(state => state.loading.loading);
+  const reality = useSelector(state => state.account.reality);
 
-  const { currentUser, logout } = useAuth()
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (currentUser.uid) {
-      update(currentUser.uid)
+      checkReality(currentUser.uid);
     }
-  }, [])
+  }, []);
 
-  const handleSubmit = async () => {
-    try {
-      await logout()
-      navigate('/splash')
-    } catch (error) {
-
-    }
-  }
+  console.log('reality', reality);
 
   return (
     <div>
-
       {loading ? <Loading /> :
         <div className='fade'>
-          <center>
-            <h3 className='darkGreen'>Dashboard</h3>
-            <button onClick={handleSubmit} >logout</button>
-            <br /><br />
-          </center>
+          <Navigation />
 
-        </div >
+          {!!reality === false ? <NewGame />
+            : <div className='container'>
+              <p className='interface-text head'>
+                | stream <br />
+              </p>
+
+              <p className='interface-text prompt'>
+                ! interface possibility<br />
+              </p>
+
+              <p className='interface-text'><a href='#' onClick={() => navigate('/game')}>> {reality.possibility}</a></p>
+              <br />
+
+              <p className='interface-text info'># resonance</p>
+              <br />
+              {reality.awareness.map(item => {
+                if (item !== reality.possibility) {
+                  return <><p className='interface-text disabled'>x {item}</p> <br /></>
+                }
+              })}
+            </div>
+          }
+        </div>
       }
-
-    </div>
+    </div >
   )
 }
 

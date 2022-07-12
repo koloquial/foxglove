@@ -8,6 +8,7 @@ import PrivateRoute from './authentication/PrivateRoute';
 //Screens
 import Splash from './screens/Splash';
 import Dashboard from './screens/Dashboard';
+import Game from './screens/Game';
 
 //Store
 import store from './store';
@@ -25,6 +26,10 @@ const App = () => {
 
             <Route path='/' element={<PrivateRoute />} exact>
               <Route path='/' element={<Dashboard />} exact />
+            </Route>
+
+            <Route path='/game' element={<PrivateRoute />} exact>
+              <Route path='/game' element={<Game />} exact />
             </Route>
 
           </Routes>

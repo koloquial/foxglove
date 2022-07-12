@@ -41,36 +41,29 @@ const Signup = () => {
   }
 
   return (
-    <Card className='card'>
-      <Card.Body>
-        {error && <Alert variant='danger'>{error}</Alert>}
-        <Form onSubmit={handleSubmit}>
-          <Row>
-            <Col xl={2}>
-              <h1 className='label'>Create</h1>
-            </Col>
-            <Col>
-              <Form.Group id='email'>
-                <Form.Control className='input' type='email' ref={emailRef} placeholder={'Email'} required />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group id='password'>
-                <Form.Control className='input' type='password' ref={passwordRef} placeholder={'Password'} required />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group id='passwordConfirm'>
-                <Form.Control className='input' type='password' ref={passwordConfirmRef} placeholder={'Retype Password'} required />
-              </Form.Group>
-            </Col>
-            <Col xl={2}>
-              <Button className='button' type='submit' disabled={loading}>Log In</Button>
-            </Col>
-          </Row>
-        </Form>
-      </Card.Body>
-    </Card>
+    <div className='card'>
+      {error && <Alert variant='danger'>{error}</Alert>}
+      <Form onSubmit={handleSubmit}>
+
+        <p className='interface-text head'>
+          | create an aftid_
+        </p>
+
+        <Form.Group id='email'>
+          <Form.Control className='input' type='email' ref={emailRef} placeholder={'Email'} required />
+        </Form.Group>
+
+        <Form.Group id='password'>
+          <Form.Control className='input' type='password' ref={passwordRef} placeholder={'Password'} required />
+        </Form.Group>
+
+        <Form.Group id='passwordConfirm'>
+          <Form.Control className='input' type='password' ref={passwordConfirmRef} placeholder={'Retype Password'} required />
+        </Form.Group>
+
+        <Button className='button' type='submit' disabled={loading}>Log In</Button>
+      </Form>
+    </div>
   )
 
 }

@@ -28,37 +28,32 @@ const Login = () => {
       await login(emailRef.current.value, passwordRef.current.value);
       navigate('/');
     } catch {
-      setError('Failed to log in');
+      setError('failed to log in. try again.');
     }
     setLoading(false)
   }
 
   return (
-    <Card className='card'>
-      <Card.Body>
-        {error && <Alert variant='danger'>{error}</Alert>}
-        <Form onSubmit={handleSubmit}>
-          <Row>
-            <Col xl={2}>
-              <h1 className='label'>AFTid</h1>
-            </Col>
-            <Col xl={4}>
-              <Form.Group id='email'>
-                <Form.Control className='input' type='email' ref={emailRef} placeholder={'Email'} required />
-              </Form.Group>
-            </Col>
-            <Col xl={4}>
-              <Form.Group id='password'>
-                <Form.Control className='input' type='password' ref={passwordRef} placeholder={'Password'} required />
-              </Form.Group>
-            </Col>
-            <Col xl={2}>
-              <Button className='button' type='submit' disabled={loading}>Log In</Button>
-            </Col>
-          </Row>
-        </Form>
-      </Card.Body>
-    </Card>
+    <div className='card'>
+      <Form onSubmit={handleSubmit}>
+
+        <p className='interface-text head'>
+          | login via aftid
+          {error ? <p className='interface-text error'><br /> > {error}</p> : <></>}
+        </p>
+
+        <Form.Group id='email'>
+          <Form.Control className='input' type='email' ref={emailRef} placeholder={'Email'} required />
+        </Form.Group>
+
+        <Form.Group id='password'>
+          <Form.Control className='input' type='password' ref={passwordRef} placeholder={'Password'} required />
+        </Form.Group>
+
+        <Button className='button' type='submit' disabled={loading}>Log In</Button>
+
+      </Form>
+    </div>
   )
 }
 

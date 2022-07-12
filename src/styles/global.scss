@@ -4,23 +4,46 @@ body {
   background-color: rgb(1, 1, 1);
 }
 
-.center {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.card{
   background: transparent;
+  min-width: 250px;
+  max-width: 300px;
+  text-align: left;
+}
+
+.container{
+  height: 100vh;
+  width: 100vw;
+  padding: 5vw;
 }
 
 .vertical-center{
-position: absolute;
-top: 10%;
-width: 90vw;
-padding: 5vw;
+  position: absolute;
+  top: 10vh;
 }
 
-.card{
-  background: rgba(45, 45, 45, 0.3);
-  vertical-align: top;
-  text-align: top;
+.view{
+  height:75vh;
+  width: 100vw;
+  padding: 5px;
+  border: 1px dotted $head;
+}
+
+.controller {
+  position:absolute;
+  bottom: 0;
+  height: 24vh;
+  width: 100vw;
+  padding: 5px;
+  border: 1px dotted $prompt;
+}
+
+.flicker {
+  animation: flick 3s linear infinite;
+}
+
+@keyframes flick {
+  50% {
+    opacity: 30%;
+  }
 }

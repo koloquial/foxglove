@@ -3,19 +3,19 @@ import { createSlice } from '@reduxjs/toolkit';
 const accountSlice = createSlice({
   name: 'account',
   initialState: {
-    database: {},
-    loading: true
+    uid: undefined,
+    reality: {},
   },
   reducers: {
-    assignDatabase: (state, action) => {
-      state.database = action.payload
+    setUID: (state, action) => {
+      state.uid = action.payload
     },
-    assignLoading: (state, action) => {
-      state.loading = action.payload
+    setReality: (state, action) => {
+      state.reality = action.payload
     }
   }
 });
 
-export const { assignDatabase, assignLoading } = accountSlice.actions;
+export const { setUID, setReality } = accountSlice.actions;
 
 export default accountSlice;
