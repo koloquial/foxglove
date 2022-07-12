@@ -6,13 +6,13 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 //Functions
-import { hash } from '../../../../functions/hash.js';
+import { hash } from '../../../../requests/hash.js';
 
 //Authentication
 import { useAuth } from '../../../../authentication/AuthContext';
 
 //Store
-import { setLoading } from '../../../../store/features/loadingSlice';
+import { setLoading, setLoadingMessage } from '../../../../store/features/loadingSlice';
 import { setReality } from '../../../../store/features/accountSlice';
 
 //
@@ -38,8 +38,11 @@ const NewGame = () => {
 
   const handleStepOne = event => {
     event.preventDefault();
+
     if (awarenessRef.current.value !== '') {
-      hash(awarenessRef.current.value)
+      dispatch(setLoading(true));
+      dispatch(setLoadingMessage('mapping probabilities'))
+      hash({ awareness: awarenessRef.current.value })
         .then(res => {
           let temp = [];
           let temp2 = [];
@@ -54,6 +57,7 @@ const NewGame = () => {
           setRoot(temp);
           setGlossaryA(temp2);
           setStep(2);
+          dispatch(setLoading(false));
         });
     }
   }
@@ -132,6 +136,7 @@ const NewGame = () => {
     }
 
     dispatch(setLoading(true));
+    dispatch(setLoadingMessage('projecting'))
     dispatch(setReality(newReality));
     addReality(newReality)
       .then(res => {
